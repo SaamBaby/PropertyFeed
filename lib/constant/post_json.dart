@@ -6,7 +6,7 @@ List posts = [
     "postImg" : "https://images.unsplash.com/photo-1605812276723-c31bb1a68285?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
     "caption" : " SERIOUS MODE during SERIOUS RAINY DAY",
     "isLoved" : true,
-    "commentCount" : "10",
+    "LikeCount" : "10",
     "likedBy" : "whereavygoes",
     "timeAgo" : "1 day ago"
   },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -10,23 +11,14 @@ class ProfessionalFeed extends StatefulWidget {
 }
 
 class _ProfessionalFeedState extends State<ProfessionalFeed>  with SingleTickerProviderStateMixin{
-  TabController _tabController;
-  ScrollController _scrollController;
+
 
   @override
   void initState(){
     super.initState();
-    _tabController= TabController(length: 2, vsync: this);
-    _scrollController= ScrollController();
 
   }
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    _scrollController.dispose();
-    _tabController.dispose();
-  }
+
 
 
   @override
@@ -43,8 +35,26 @@ class _ProfessionalFeedState extends State<ProfessionalFeed>  with SingleTickerP
             Center(
                 child: Container(
                   color: Colors.white,
-                  child: Text(
-                    "Agents",
+                  child: Container(
+                    child: StaggeredGridView.countBuilder(
+                      crossAxisCount: 4,
+                      itemCount: 15,
+                      itemBuilder: (BuildContext context, int index) => new Container(
+                        height: 120.0,
+                        width: 120.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage('https://picsum.photos/500/500?random=$index'),
+                            fit: BoxFit.fill,
+                          ),
+                          shape: BoxShape.rectangle,
+                        ),
+                      ),
+                      staggeredTileBuilder: (int index) =>
+                      new StaggeredTile.count(2, index.isEven ? 2 : 1),
+                      mainAxisSpacing: 4.0,
+                      crossAxisSpacing: 4.0,
+                    ),
                   ),
                 ))
           ],

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,135 +14,231 @@ class _FeedTabState extends State<FeedTab> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xfff2f2f2),
+      color: Color(0xfffafafa),
+      child: SingleChildScrollView(
+        child: Column(
+          
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(stories.length, (index){
+
+                    return Padding(
+                      padding: EdgeInsets.all(2),
+                      child: StoryFeed(img: stories[index]['img'],name: stories[index]['name'],isLive: stories[index]['isLive']??false),
+                    );
+                  })
+                ),
+              ),
+            ),
+            PostCard(),
+            PostCard(),
+            PostCard(),
+
+
+
+
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class PostCard extends StatelessWidget {
+ final String post_title;
+ final String profileImg;
+ final String name;
+ final String postImg;
+ final String profession;
+ final String LikeCount;
+
+
+ const PostCard({
+    Key key, this.post_title,this.profileImg, this.name, this.postImg, this.profession, this.LikeCount,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
       child: Column(
-        
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(stories.length, (index){
+            padding: EdgeInsets.symmetric(vertical: 20,horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  child: Row(
+                    children: [
+                      CircleAvatar(radius: 23,
+                      backgroundImage:NetworkImage(profileImg ?? "https://images.unsplash.com/photo-1605885178292-1eb68e3fe93f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"),),
+                      SizedBox(width: 10,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(name??"John Mu",style: GoogleFonts.montserrat(
+                              color: Color(0xff696969),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700),),
+                          SizedBox(height: 3,),
+                          Text(profession ??"Real Estate Agent ",style: GoogleFonts.montserrat(
+                              color: Color(0xff272727),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),)
+                        ],
+                      ),
 
-                  return Padding(
-                    padding: EdgeInsets.all(2),
-                    child: StoryFeed(img: stories[index]['img'],name: stories[index]['name'],isLive: stories[index]['isLive']??false),
-                  );
-                })
-              ),
+                    ]
+                  ),
+                ),
+                Icon(Icons.more_horiz,
+                size: 30,),
+              ],
             ),
           ),
           Container(
-            color: Colors.white,
+            height: 400,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage(postImg??posts[0]['postImg']),fit: BoxFit.cover
+              ),
+            )
+          ),
+          SizedBox(width: 10,),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        child: Row(
+                SizedBox(height: 5,),
+                Text( post_title ?? "scouts guide to the zombie apocalypse",style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontSize: 18,
+                    height: 1.5,
+                    fontWeight: FontWeight.w400),),
+
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("$LikeCount Likes",style: GoogleFonts.montserrat(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600),),
+                    Container(
+                      child: Row(
                           children: [
-                            CircleAvatar(radius: 23,
-                            backgroundImage:NetworkImage("https://images.unsplash.com/photo-1605885178292-1eb68e3fe93f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"),),
+                            Icon(
+                              Icons.favorite_border,
+                              color: Colors.black.withOpacity(.8),
+                              size: 25.0,
+
+                            ),
+                            SizedBox(width: 25,),
+                            Icon(
+                              Icons.insert_comment,
+                              color: Colors.black.withOpacity(.8),
+                              size: 25.0,
+
+                            ),
+                            SizedBox(width: 30,),
+                            Icon(
+                              Icons.send,
+                              color: Colors.black.withOpacity(.8),
+                              size: 25.0,
+
+                            ),
                             SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("John Mu",style: GoogleFonts.montserrat(
-                                    color: Color(0xff696969),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700),),
-                                SizedBox(height: 3,),
-                                Text("Real Estate Agent ",style: GoogleFonts.montserrat(
-                                    color: Color(0xff272727),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),)
-                              ],
+                            Icon(
+                              Icons.bookmark_border,
+                              color: Colors.black.withOpacity(.8),
+                              size: 25.0,
+
                             ),
 
+                            SizedBox(width: 20,),
+                            Icon(
+                              Icons.shuffle,
+                              color: Colors.black.withOpacity(.8),
+                              size: 25.0,
+
+                            ),
+
+
+
                           ]
-                        ),
                       ),
-                      Icon(Icons.more_horiz,
-                      size: 30,),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 300,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage(posts[0]['postImg']),fit: BoxFit.cover
                     ),
-                  )
-                ),
-                SizedBox(width: 10,),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text("123 Likes",style: GoogleFonts.montserrat(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),),
-                      Container(
-                        child: Row(
-                            children: [
-                              Icon(
-                                Icons.favorite_border,
-                                color: Colors.black.withOpacity(.8),
-                                size: 25.0,
 
-                              ),
-                              SizedBox(width: 25,),
-                              Icon(
-                                Icons.insert_comment,
-                                color: Colors.black.withOpacity(.8),
-                                size: 25.0,
-
-                              ),
-                              SizedBox(width: 30,),
-                              Icon(
-                                Icons.send,
-                                color: Colors.black.withOpacity(.8),
-                                size: 25.0,
-
-                              ),
-                              SizedBox(width: 10,),
-                              Icon(
-                                Icons.bookmark_border,
-                                color: Colors.black.withOpacity(.8),
-                                size: 25.0,
-
-                              ),
-
-                              SizedBox(width: 20,),
-                              Icon(
-                                Icons.shuffle,
-                                color: Colors.black.withOpacity(.8),
-                                size: 25.0,
-
-                              ),
-
-
-
-                            ]
-                        ),
-                      ),
-
-                    ],
-                  ),
+                  ],
                 ),
               ],
             ),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 15,),
+            color: Color(0xfffafafa),
+            child: Padding(
 
+              padding: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
+
+              child:Column(
+
+
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                      children: [
+                        CircleAvatar(radius: 20,
+                          backgroundImage:NetworkImage("https://images.unsplash.com/photo-1605885178292-1eb68e3fe93f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"),),
+                        SizedBox(width: 10,),
+                        Expanded(
+                            child: Container(
+                              width: double.infinity,
+                              padding: EdgeInsets.symmetric(horizontal: 15),
+                              decoration: BoxDecoration(
+                                  color: Color(0xfff2f2f2),
+                                  borderRadius: BorderRadius.circular(15)),
+                              child: TextField(
+                                cursorColor: Colors.blue,
+                                decoration: InputDecoration(
+
+                                  border: InputBorder.none,
+                                  hintText: "Add a comment.....",
+                                  hintStyle: GoogleFonts.montserrat(
+                                      color: Colors.black.withOpacity(.5),
+                                      fontSize: 16,
+                                      fontStyle:  FontStyle.italic,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ),
+                            ))
+
+                      ]
+
+                  ),
+                  SizedBox(height: 20,),
+                  Text("5 hours ago",style: GoogleFonts.montserrat(
+                      color: Colors.black.withOpacity(.7),
+                      fontSize: 16,
+                      fontStyle:  FontStyle.italic,
+                      fontWeight: FontWeight.w400),),
+                ],
+
+
+              ),
+
+
+
+            ),
+          ),
         ],
       ),
     );
