@@ -1,0 +1,6 @@
+package com.professsionalfeed
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
