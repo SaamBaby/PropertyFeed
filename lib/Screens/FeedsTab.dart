@@ -131,14 +131,14 @@ class PostCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 5,),
-                Text( post_title ?? "scouts guide to the zombie apocalypse",style: GoogleFonts.montserrat(
+                SizedBox(height: 1,),
+                Text( post_title ?? "scouts ",style: GoogleFonts.montserrat(
                     color: Colors.black,
                     fontSize: 18,
                     height: 1.5,
                     fontWeight: FontWeight.w400),),
 
-                SizedBox(height: 20,),
+                SizedBox(height: 15,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -152,13 +152,13 @@ class PostCard extends StatelessWidget {
                           text: (LikeCount).toString() ??"1235"  ,
                           style: GoogleFonts.montserrat(
                         color: Colors.black,
-                        fontSize: 16,
+                        fontSize: 15,
                         fontWeight: FontWeight.w500),
                           children: <TextSpan>[
-                            TextSpan(text: '  Likes',
+                            TextSpan(text: ' likes',
                                 style: GoogleFonts.montserrat(
                                 color: Colors.black,
-                                fontSize: 16,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w500)
 //                                recognizer: TapGestureRecognizer()
 //                                  ..onTap = () {
@@ -182,7 +182,7 @@ class PostCard extends StatelessWidget {
 
                           SizedBox(width: 20,),
 
-                          SvgPicture.asset("assets/images/bookmark.svg",width: 27,),
+                          SvgPicture.asset("assets/images/bookmark.svg",width: 28,),
                           SizedBox(width: 20,),
 
                           SvgPicture.asset("assets/images/repeat.svg",width: 27,),
@@ -197,7 +197,7 @@ class PostCard extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 15,),
+            margin: EdgeInsets.symmetric(vertical: 10,),
             color: Color(0xfffafafa),
             child: Padding(
 
