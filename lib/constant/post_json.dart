@@ -1,46 +1,60 @@
 List posts = [
   {
      "id" : 1,
-    "name" : "panhchaneath_ung",
+    "name" : "Tom Mills",
+    "profession":"Real Estate Agent",
     "profileImg" : "https://images.unsplash.com/photo-1605885178292-1eb68e3fe93f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
-    "postImg" : "https://images.unsplash.com/photo-1605812276723-c31bb1a68285?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    "postImg" : "https://images.unsplash.com/photo-1541293976501-c97132fc7d24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
     "caption" : " SERIOUS MODE during SERIOUS RAINY DAY",
     "isLoved" : true,
     "LikeCount" : "10",
-    "likedBy" : "whereavygoes",
     "timeAgo" : "1 day ago"
   },
   {
     "id" : 2,
-    "name" : "whereavygoes",
-    "profileImg" : "https://instagram.fpnh11-1.fna.fbcdn.net/v/t51.2885-19/s320x320/66267487_1271293943050252_6667827703590158336_n.jpg?_nc_ht=instagram.fpnh11-1.fna.fbcdn.net&_nc_ohc=wFH8Wyze7RMAX9jvdjJ&oh=f7cc38276d8fce5410b3f53bb14595d6&oe=5F4384F7",
-    "postImg" : "https://scontent.fpnh11-1.fna.fbcdn.net/v/t1.0-9/76660677_551839988724922_4642561090914353152_o.jpg?_nc_cat=111&_nc_sid=730e14&_nc_eui2=AeE72dvMFRxJqbbCDq6Y3EP_vFyWpW3a_QW8XJalbdr9Bc0yt0wQmEEpzBNrVMyL2ZROoKHk73fJXl75AtVvJ4KK&_nc_ohc=NSS29LgHRGwAX-bM1Zj&_nc_ht=scontent.fpnh11-1.fna&oh=c5596844096026c2a0d817696446472b&oe=5F407DA1",
+    "name" : "Mike West",
+    "profession":"Real Estate Agent",
+    "profileImg" : "https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    "postImg":"https://images.unsplash.com/photo-1557804483-ef3ae78eca57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1882&q=80",
     "caption" : " ទឹកមុខនៅពេលយើងអត់ចង់ថតរូបនៅកន្លែងសួនផ្កា ហើយគេបង្ខំអោយយើងថត។ 😏😒",
     "isLoved" : true,
-    "commentCount" : "10",
-    "likedBy" : "sonitakhoun",
+    "LikeCount" : "100",
     "timeAgo" : "1 day ago"
   },
   {
     "id" : 3,
-    "name" : "allef_vinicius",
-    "profileImg" : "https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    "name" : "allef vinicius",
+    "profession":"Real Estate Agent",
+    "profileImg" : "https://images.unsplash.com/photo-1553484771-898ed465e931?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
     "postImg" : "https://images.unsplash.com/photo-1578616070222-50c4de9d5ade?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    "caption" : " It is a good to day",
+    "caption" : " It is a good  day",
     "isLoved" : false,
-    "commentCount" : "60",
-    "likedBy" : "babysweetiepie",
+    "LikeCount" : "100",
+
     "timeAgo" : "3 day ago"
   },
   {
     "id" : 4,
-    "name" : "babysweetiepie",
-    "profileImg" : "https://instagram.fpnh11-1.fna.fbcdn.net/v/t51.2885-19/s320x320/53868419_327116881276842_1562862290330451968_n.jpg?_nc_ht=instagram.fpnh11-1.fna.fbcdn.net&_nc_ohc=uznUqwaKIy0AX8_27ay&oh=1f0a0031c6cde7556509249001a578e2&oe=5F427349",
-    "postImg" : "https://scontent.fpnh11-1.fna.fbcdn.net/v/t1.0-9/106604749_3066249713461997_1180672303509270561_o.jpg?_nc_cat=107&_nc_sid=84a396&_nc_eui2=AeHaQqPoeJsZ5zsT4TNdcgNBwz1Ep0vJl4HDPUSnS8mXgQ1HnZyXeQceD-HErYLIVkR4CtE5mqAGI7ctXQfyo5En&_nc_ohc=FjoLZcN0uRcAX-EKXJs&_nc_ht=scontent.fpnh11-1.fna&oh=7a2fa3959fb3360de39d19e5307c5f67&oe=5F406C98",
-    "caption" : "I love how a 6-year-old kid took better photos than many of my friends out there 😂",
+    "name" : "Kevin Doyle",
+    "profession":"Real Estate Agent",
+    "profileImg" : "https://images.unsplash.com/photo-1605885178292-1eb68e3fe93f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
+    "postImg" : "https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80",
+    "caption" : "I love how a 6-year-old kid finds a place awesome to live in 😂",
     "isLoved" : false,
-    "commentCount" : "70",
-    "likedBy" : "sonitakhoun",
+    "LikeCount" : "10",
+
     "timeAgo" : "3 day ago"
-  }
+  },
+  {
+    "id" : 5,
+    "name" : "Tom Mills",
+    "profession":"Real Estate Agent",
+    "profileImg" : "https://images.unsplash.com/photo-1605885178292-1eb68e3fe93f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
+    "postImg" : "https://images.unsplash.com/photo-1553484771-4e29a68540f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2072&q=80",
+    "caption" : " PLACE FOR BEING SERIOUS MODE ",
+    "isLoved" : true,
+    "LikeCount" : "10",
+
+    "timeAgo" : "1 day ago"
+  },
 ];

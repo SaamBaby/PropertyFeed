@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:professsionalfeed/Screens/ProfessionalFeeds.dart';
 
-
-void main ()  async{
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith( statusBarBrightness: Brightness.dark,statusBarColor: Colors.transparent));
+void main() async {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarBrightness: Brightness.dark,
+      statusBarColor: Colors.transparent));
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
     runApp(new MyApp());
   });
 }
@@ -25,5 +27,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:professsionalfeed/constant/post_json.dart';
@@ -34,9 +36,19 @@ class _FeedTabState extends State<FeedTab> {
                 ),
               ),
             ),
-            PostCard(),
-            PostCard(),
-            PostCard(),
+            Column(
+              children: List.generate(posts.length, (index) {
+                 return PostCard(post_title: posts[index]['caption'],
+                   profileImg: posts[index]['profileImg'],
+                   postImg: posts[index]['postImg'],
+                   name:posts[index]['name'],
+                   profession: posts[index]['profession'],
+                   LikeCount: posts[index]['LikeCount'],
+                   isLoved:  posts[index]['isLoved'],
+                   timeAgo: posts[index]['timeAgo'],);
+              }),
+            )
+
 
 
 
@@ -55,10 +67,13 @@ class PostCard extends StatelessWidget {
  final String postImg;
  final String profession;
  final String LikeCount;
+ final String timeAgo;
+ final bool isLoved;
+
 
 
  const PostCard({
-    Key key, this.post_title,this.profileImg, this.name, this.postImg, this.profession, this.LikeCount,
+    Key key, this.post_title,this.profileImg, this.name, this.postImg, this.profession, this.LikeCount, this.timeAgo, this.isLoved,
   }) : super(key: key);
 
   @override
@@ -77,13 +92,13 @@ class PostCard extends StatelessWidget {
                   child: Row(
                     children: [
                       CircleAvatar(radius: 23,
-                      backgroundImage:NetworkImage(profileImg ?? "https://images.unsplash.com/photo-1605885178292-1eb68e3fe93f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"),),
+                      backgroundImage:NetworkImage(profileImg??"https://i.pinimg.com/564x/e1/77/47/e17747c78dd89a1d9522c5da154128b2.jpg"),),
                       SizedBox(width: 10,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(name??"John Mu",style: GoogleFonts.montserrat(
-                              color: Color(0xff696969),
+                              color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.w700),),
                           SizedBox(height: 3,),
@@ -128,52 +143,51 @@ class PostCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("$LikeCount Likes",style: GoogleFonts.montserrat(
+//                    Text("$LikeCount Likes",style: GoogleFonts.montserrat(
+//                        color: Colors.black,
+//                        fontSize: 18,
+//                        fontWeight: FontWeight.w600),),
+                    RichText(
+                      text: TextSpan(
+                          text: (LikeCount).toString() ??"1235"  ,
+                          style: GoogleFonts.montserrat(
                         color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600),),
-                    Container(
-                      child: Row(
-                          children: [
-                            Icon(
-                              Icons.favorite_border,
-                              color: Colors.black.withOpacity(.8),
-                              size: 25.0,
-
-                            ),
-                            SizedBox(width: 25,),
-                            Icon(
-                              Icons.insert_comment,
-                              color: Colors.black.withOpacity(.8),
-                              size: 25.0,
-
-                            ),
-                            SizedBox(width: 30,),
-                            Icon(
-                              Icons.send,
-                              color: Colors.black.withOpacity(.8),
-                              size: 25.0,
-
-                            ),
-                            SizedBox(width: 10,),
-                            Icon(
-                              Icons.bookmark_border,
-                              color: Colors.black.withOpacity(.8),
-                              size: 25.0,
-
-                            ),
-
-                            SizedBox(width: 20,),
-                            Icon(
-                              Icons.shuffle,
-                              color: Colors.black.withOpacity(.8),
-                              size: 25.0,
-
-                            ),
-
-
-
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                          children: <TextSpan>[
+                            TextSpan(text: '  Likes',
+                                style: GoogleFonts.montserrat(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500)
+//                                recognizer: TapGestureRecognizer()
+//                                  ..onTap = () {
+//                                    // navigate to desired screen
+//                                  }
+                            )
                           ]
+                      ),
+                    ),
+                    Container(
+                      child:  Row(
+                        children: <Widget>[
+                          isLoved ? SvgPicture.asset("assets/images/loved_icon.svg",width: 27,) : SvgPicture.asset("assets/images/love_icon.svg",width: 27,),
+                          SizedBox(width: 20,),
+                          SvgPicture.asset("assets/images/comment_icon.svg",
+                            width: 27,
+                          color: Colors.black,),
+                          SizedBox(width: 20,),
+                          SvgPicture.asset("assets/images/message_icon.svg",width: 27,
+                            color: Colors.black,),
+
+                          SizedBox(width: 20,),
+
+                          SvgPicture.asset("assets/images/bookmark.svg",width: 27,),
+                          SizedBox(width: 20,),
+
+                          SvgPicture.asset("assets/images/repeat.svg",width: 27,),
+
+                        ],
                       ),
                     ),
 
@@ -197,7 +211,7 @@ class PostCard extends StatelessWidget {
                   Row(
                       children: [
                         CircleAvatar(radius: 20,
-                          backgroundImage:NetworkImage("https://images.unsplash.com/photo-1605885178292-1eb68e3fe93f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"),),
+                          backgroundImage:NetworkImage(profileImg??"https://i.pinimg.com/564x/e1/77/47/e17747c78dd89a1d9522c5da154128b2.jpg"),),
                         SizedBox(width: 10,),
                         Expanded(
                             child: Container(
@@ -225,7 +239,7 @@ class PostCard extends StatelessWidget {
 
                   ),
                   SizedBox(height: 20,),
-                  Text("5 hours ago",style: GoogleFonts.montserrat(
+                  Text(timeAgo??"5 hours ago",style: GoogleFonts.montserrat(
                       color: Colors.black.withOpacity(.7),
                       fontSize: 16,
                       fontStyle:  FontStyle.italic,
